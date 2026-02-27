@@ -1,0 +1,81 @@
+name: "Conductor: New Track"
+description: Start a new feature or bug fix track
+title: "[Conductor] "
+labels: ["conductor"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Create a New Track
+
+        A track is a high-level unit of work (feature or bug fix) that includes:
+        - Detailed specification
+        - Implementation plan with phases and tasks
+        - Metadata and tracking
+
+  - type: dropdown
+    id: track_type
+    attributes:
+      label: Track Type
+      description: What type of work is this?
+      options:
+        - "Feature"
+        - "Bug Fix"
+        - "Enhancement"
+        - "Refactoring"
+    validations:
+      required: true
+
+  - type: textarea
+    id: track_description
+    attributes:
+      label: Track Description
+      description: Describe what you want to build or fix
+      placeholder: "E.g., Add a dark mode toggle to the settings page that persists user preference"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_stories
+    attributes:
+      label: User Stories (Optional)
+      description: User stories or use cases
+      placeholder: |
+        As a user, I want to...
+        So that I can...
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria (Optional)
+      description: How will we know this is complete?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+    validations:
+      required: false
+
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: Technical Notes (Optional)
+      description: Any technical constraints or requirements?
+      placeholder: "E.g., Must use localStorage for persistence, should work on all modern browsers"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        **After submitting this issue**, the Conductor workflow will:
+        1. Generate a unique track ID
+        2. Create a detailed specification (spec.md)
+        3. Generate an implementation plan (plan.md) with phases and tasks
+        4. Create a PR for your review
+        5. Update the tracks registry
+
+        **Next step**: Review and merge the PR, then use `/conductor:implement` to start coding!
