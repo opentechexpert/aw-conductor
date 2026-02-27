@@ -1,0 +1,70 @@
+name: "Conductor: Setup Project"
+description: Initialize Conductor framework for context-driven development
+title: "[Conductor] Setup Project Context"
+labels: ["conductor"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Initialize Conductor Framework
+
+        This will set up the Conductor context-driven development framework for your project.
+        The workflow will create the following structure:
+
+        ```
+        conductor/
+        ├── product.md
+        ├── tech-stack.md
+        ├── workflow.md
+        ├── product-guidelines.md
+        └── tracks.md
+        ```
+
+  - type: textarea
+    id: project_overview
+    attributes:
+      label: Project Overview
+      description: Briefly describe your project (this will help guide the setup)
+      placeholder: "E.g., A web application for managing personal tasks with real-time collaboration features"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project_type
+    attributes:
+      label: Project Type
+      description: Is this a new project or an existing codebase?
+      options:
+        - "Greenfield (new project)"
+        - "Brownfield (existing project)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: tech_stack_hints
+    attributes:
+      label: Tech Stack (Optional)
+      description: List your primary technologies if known
+      placeholder: "E.g., React, Node.js, PostgreSQL, Docker"
+    validations:
+      required: false
+
+  - type: textarea
+    id: workflow_preferences
+    attributes:
+      label: Workflow Preferences (Optional)
+      description: Any specific development practices you want to follow?
+      placeholder: "E.g., TDD, trunk-based development, semantic versioning"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        **After submitting this issue**, the Conductor workflow will:
+        1. Create the conductor directory structure
+        2. Guide you through defining your project context
+        3. Generate initial context files
+        4. Comment with next steps
